@@ -16,24 +16,3 @@ body {
 	margin: 0;
 	box-sizing: border-box;
 }
-
-a {
-	color: var(--color-primary);
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-img {
-	max-width: 100%;
-	display: block;
-}
-
-@media (max-width: 600px) {
-	html,
-	body {
-		font-size: 16px;
-	}
-}

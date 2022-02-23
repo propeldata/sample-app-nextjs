@@ -52,14 +52,13 @@ export async function getServerSideProps(context) {
  * Set the query
  */
 const QUERY = gql`
-  query caseQuery ($id: ID!, $start: DateTime, $stop: DateTime) {
+  query caseQuery ($id: ID!) {
     metric (id: $id) {
       timeSeries (input: {
         timeRange: {
-          start: $start
-          stop: $stop
+          relative: LAST_5_YEARS
         }
-        granularity: WEEK
+        granularity: YEAR
       }) {
         labels
         values
@@ -75,13 +74,6 @@ const QUERY = gql`
 
 export default function TimeSeries({ accessToken }) {
   const [options, setOptions] = React.useState()
-  const [timeRange, setTimeRange] = React.useState([
-    dayjs('2021-01-01'),
-    dayjs('2022-05-21')
-  ])
-
-  const startDate = timeRange[0].format('YYYY-MM-DD')
-  const stopDate = timeRange[1].format('YYYY-MM-DD')
 
   React.useEffect(() => {
     if (accessToken) {
@@ -96,19 +88,15 @@ export default function TimeSeries({ accessToken }) {
           /**
            * Your Metric ID
            */
-          id: 'MET01FV2JKFHCJTVNTXWGYFJ2Q8T8',
-          start: startDate,
-          stop: stopDate
+          id: 'MET01FWKYS9ZH4HAZZ74P02AWSFX7'
         })
 
         setOptions(buildTimeSeriesChartConfig(metric.timeSeries))
       } catch (error) {}
     }
 
-    if (startDate && stopDate) {
-      fetchData()
-    }
-  }, [startDate, stopDate])
+    fetchData()
+  }, [])
 
   return (
     <>
@@ -135,20 +123,6 @@ export default function TimeSeries({ accessToken }) {
           ? <p>Loading...</p>
           : (
           <div className="chart-container">
-            <DateRangePicker
-              startText="Start date"
-              endText="End date"
-              value={timeRange}
-              onChange={(date) => setTimeRange(date)}
-              autoOk
-              renderInput={(startProps, endProps) => (
-                <React.Fragment>
-                  <TextField {...startProps} />
-                  <Box sx={{ mx: 2 }}> to </Box>
-                  <TextField {...endProps} />
-                </React.Fragment>
-              )}
-            />
             <ReactECharts option={options} />
             <style jsx>{`
               .chart-container {

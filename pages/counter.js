@@ -77,7 +77,7 @@ export default function Counter({ accessToken }) {
           /**
            * Your Metric ID
            */
-          id: 'MET01FV2JKFHCJTVNTXWGYFJ2Q8T8'
+          id: 'MET01FWKXXQX7MKB114NB7BKZA0BA'
         })
 
         setOptions(buildCounterChartConfig(metric.counter.value))
