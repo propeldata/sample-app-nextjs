@@ -1,14 +1,44 @@
 :root {
-	--color-primary: #1b91ff;
-	--sides-padding: 30px;
-	--appbar-height: 60px;
+  --color-primary: #1b91ff;
+  --color-primary-light: #ebf5ff;
+
+  --color-secondary: #012342;
+  --color-secondary-light: #073763;
+
+  --color-background: #fff;
+  --color-background-darker: #f4f7fa;
+  --color-foreground: #052e53;
+
+  --color-success: #5bc32a;
+  --color-success-light: #F0FFED;
+
+  --color-error: #ff4d57;
+  --color-error-light: #FFEDEE;
+
+  --color-warning: #f5c415;
+  --color-warning-light: #FFF9E5;
+
+  --color-info: var(--color-primary-light);
+  --color-info-light: #F1F7FE;
+
+  --color-default: #edf2f7;
+
+  --color-text: #001E2E;
+  --color-text-disabled: #a7b9c9;
+  --color-text-secondary: var(--color-secondary);
+
+  --color-skeleton: #efefef;
+
+	--page-card-title-font-size: 16px;
+	--page-card-title-font-weight: 600;
+
+  --shape-radius: 4px;
 }
 
 html,
 body {
 	font-family: Roboto, Helvetica, Arial, sans-serif;
-	line-height: 1.6;
-	font-size: 18px;
+	font-size: 14px;
 }
 
 * {

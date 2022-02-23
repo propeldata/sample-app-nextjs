@@ -13,16 +13,17 @@
     "dayjs": "^1.10.7",
     "echarts": "^5.3.0",
     "echarts-for-react": "^3.0.2",
-    "gestalt": "^45.5.9",
     "graphql": "^15.5.3",
     "graphql-request": "^3.7.0",
     "next": "^11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-query": "^3.34.16",
     "simple-oauth2": "^4.3.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.39",
+    "@types/simple-oauth2": "^4.1.1",
     "typescript": "^4.5.5"
   }
 }
